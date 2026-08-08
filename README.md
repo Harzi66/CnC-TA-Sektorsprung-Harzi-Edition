@@ -9,7 +9,8 @@ Erweiterte Version des ursprünglichen **Sektorsprung**-Scripts für **Command &
 - Ausgabe im Allianzchat
 - Ausgabe im Offizierschat
 - Weltkarte direkt auf den gewählten Landepunkt zentrieren
-
+- Läuft ohne "Toolbox Main"
+  
 ## Installation
 
 1. Tampermonkey installieren
@@ -28,6 +29,6 @@ Harzi Edition:
 
 ## Version
 
-**0.1.4.0 Beta**
+**0.1.5.0 Beta**
 
 Erste Harzi Edition mit Weltkarten-Zentrierung.
