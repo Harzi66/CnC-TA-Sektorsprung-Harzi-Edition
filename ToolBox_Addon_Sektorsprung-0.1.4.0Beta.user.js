@@ -9,7 +9,6 @@
 // @include        https://cncapp*.alliances.commandandconquer.com/*/index.aspx*
 // @downloadURL    https://raw.githubusercontent.com/leo7044/CnC_TA/master/ToolBox_Addon_Sektorsprung.user.js
 // @updateURL      https://raw.githubusercontent.com/leo7044/CnC_TA/master/ToolBox_Addon_Sektorsprung.user.js
-// @version        0.1.3.2 Beta
 // @grant          none
 // ==/UserScript==
 
