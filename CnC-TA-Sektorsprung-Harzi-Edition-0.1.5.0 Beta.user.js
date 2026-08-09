@@ -7,8 +7,8 @@
 // @description    Original by Trinitroglycerol, leo7044, further developed by Harzi66.
 // @description    Landepunkt für Spieler berechnen
 // @include        https://cncapp*.alliances.commandandconquer.com/*/index.aspx*
-// @downloadURL    https://raw.githubusercontent.com/Harzi66/CnC-TA-Sektorsprung-Harzi-Edition/main/ToolBox_Addon_Sektorsprung-0.1.5.0 Beta.user.js
-// @updateURL      https://raw.githubusercontent.com/Harzi66/CnC-TA-Sektorsprung-Harzi-Edition/main/ToolBox_Addon_Sektorsprung-0.1.5.0 Beta.user.js
+// @downloadURL    https://raw.githubusercontent.com/Harzi66/CnC-TA-Sektorsprung-Harzi-Edition/main/CnC-TA-Sektorsprung-Harzi-Edition-0.1.5.0-Beta.user.js
+// @updateURL      https://raw.githubusercontent.com/Harzi66/CnC-TA-Sektorsprung-Harzi-Edition/main/CnC-TA-Sektorsprung-Harzi-Edition-0.1.5.0-Beta.user.js
 // @grant          none
 // ==/UserScript==
 
