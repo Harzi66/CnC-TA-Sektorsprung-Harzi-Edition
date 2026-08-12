@@ -40,7 +40,7 @@
                         var server = ClientLib.Data.MainData.GetInstance().get_Server();
                         var erneuern = true;
                         var chatkanal = "/a ";
-                        var modus = "Karte";
+                        var modus = "karte";
                         var scriptsButton = qx.core.Init.getApplication().getMenuBar().getScriptsButton();
 
                         scriptsButton.Add("Sektorsprung", "");
@@ -61,11 +61,12 @@
                         }, this);
 
                         var SektorsprungFenster = new qx.ui.window.Window("Sektorsprung").set({
-                            showMaximize:false,
-                            showMinimize:false,
-                            showClose:true,
-                            allowClose:true,
-                            resizable:false,
+                            showMaximize: false,
+                            showMinimize: false,
+                            showClose: true,
+                            allowClose: true,
+                            resizable: false,
+                            width: 670
                         });
                         SektorsprungFenster.setLayout(new qx.ui.layout.Flow());
                         SektorsprungFenster.setTextColor("#FFFFFF");
@@ -152,90 +153,210 @@
                             }
                         };
                         SektorsprungFenster.add(starten);
-                        var refresh = new qx.ui.form.Button("refresh Rangliste").set({
-                            toolTipText: "rangliste manuell refreshen",
-                            width: 120,
-                            height: 25,
-                            maxWidth: 120,
-                            maxHeight: 25,
-                            marginLeft: 5
-                        });
-                        refresh.addListener("click", function (e) {
-                            erneuern = true;
-                        }, this);
-                        SektorsprungFenster.add(refresh);
-                        var Allichat = new qx.ui.form.RadioButton("Allianzchat").set({
-                            width: 100,
-                            minWidth: 100,
-                            maxWidth: 100,
-                            marginLeft: 5
-                        });
-                        Allichat.addListener("click", function () {
-                            chatkanal = "/a ";
-                            modus = "allianz";
-                        }, this);
-                        SektorsprungFenster.add(Allichat, {lineBreak: true});
-                        var SpielerLable = new qx.ui.basic.Label("gefundener Spieler: ").set({
-                            margin : 5,
-                            width: 115,
-                            minWidth: 115,
-                            maxWidth: 115,
-                        });
-                        SektorsprungFenster.add(SpielerLable);
-                        var Spieler = new qx.ui.form.TextField("").set({
-                            width: 150,
-                            minWidth: 150,
-                            maxWidth: 150,
-                            readOnly: true
-                        });
-                        SektorsprungFenster.add(Spieler);
 
-                        var berechnen = new qx.ui.form.Button("Landepunkte berechnen").set({
-                            toolTipText: "Berechnen der Landepunkte für den gefundenen Spieler",
-                            width: 150,
-                            height: 25,
-                            maxWidth: 150,
-                            maxHeight: 25,
-                            marginLeft: 5,
-                            enabled: false,
-                        });
-                        berechnen.addListener("click", function (e) {
-                            if (Spieler.getValue() !== "")
+                        // -------------------------------------------------
+                        // Auswahlmodus
+                        // -------------------------------------------------
+
+                        var Allichat =
+                            new qx.ui.form.RadioButton(
+                                "Allianzchat"
+                            ).set({
+                                width: 100,
+                                minWidth: 100,
+                                maxWidth: 100
+                            });
+
+                        Allichat.addListener(
+                            "click",
+                            function () {
+                                chatkanal = "/a ";
+                                modus = "allianz";
+                            },
+                            this
+                        );
+
+
+                        var Offichat =
+                            new qx.ui.form.RadioButton(
+                                "Offizierschat"
+                            ).set({
+                                width: 100,
+                                minWidth: 100,
+                                maxWidth: 100
+                            });
+
+                        Offichat.addListener(
+                            "click",
+                            function () {
+                                chatkanal = "/o ";
+                                modus = "offizier";
+                            },
+                            this
+                        );
+
+
+                        var Kartenmodus =
+                            new qx.ui.form.RadioButton(
+                                "Weltkarte"
+                            ).set({
+                                width: 100,
+                                minWidth: 100,
+                                maxWidth: 100
+                            });
+
+                        Kartenmodus.addListener(
+                            "click",
+                            function () {
+                                modus = "karte";
+                            },
+                            this
+                        );
+
+
+                        // -------------------------------------------------
+                        // Gemeinsame Zeile für die drei Auswahlbuttons
+                        // -------------------------------------------------
+
+                        var modusContainer =
+                            new qx.ui.container.Composite(
+                                new qx.ui.layout.HBox(10)
+                            );
+
+                        modusContainer.add(
+                            Allichat
+                        );
+
+                        modusContainer.add(
+                            Offichat
+                        );
+
+                        modusContainer.add(
+                            Kartenmodus
+                        );
+
+                        SektorsprungFenster.add(
+                            modusContainer,
                             {
-                                ClientLib.Net.CommunicationManager.GetInstance().SendSimpleCommand("GetPublicPlayerInfoByName", {
-                                    name: Spieler.getValue()
-                                }, webfrontend.phe.cnc.Util.createEventDelegate(ClientLib.Net.CommandResult, this, landepunktbestimmung), null);
+                                lineBreak: true
                             }
-                        }, this);
-                        SektorsprungFenster.add(berechnen);
-                        var Offichat = new qx.ui.form.RadioButton("Offizierschat").set({
-                            width: 100,
-                            minWidth: 100,
-                            maxWidth: 100,
-                            marginLeft: 10
-                        });
-                        Offichat.addListener("click", function () {
-                            chatkanal = "/o ";
-                            modus = "offizier";
-                        }, this);
-                        SektorsprungFenster.add(Offichat);
+                        );
 
-                        var Kartenmodus = new qx.ui.form.RadioButton("Weltkarte").set({
-                            width: 100,
-                            minWidth: 100,
-                            maxWidth: 100,
-                            marginLeft: 10
-                        });
-                        Kartenmodus.addListener("click", function () {
-                            modus = "karte";
-                        }, this);
-                        SektorsprungFenster.add(Kartenmodus, { lineBreak: true });
 
-                        var RadioGroup = new qx.ui.form.RadioGroup();
+                        // -------------------------------------------------
+                        // Gefundener Spieler
+                        // -------------------------------------------------
 
-                        RadioGroup.add(Allichat, Offichat, Kartenmodus);
+                        var SpielerLable =
+                            new qx.ui.basic.Label(
+                                "gefundener Spieler: "
+                            ).set({
+                                margin: 5,
+                                width: 115,
+                                minWidth: 115,
+                                maxWidth: 115
+                            });
+
+                        SektorsprungFenster.add(
+                            SpielerLable
+                        );
+
+
+                        var Spieler =
+                            new qx.ui.form.TextField(
+                                ""
+                            ).set({
+                                width: 150,
+                                minWidth: 150,
+                                maxWidth: 150,
+                                readOnly: true
+                            });
+
+                        SektorsprungFenster.add(
+                            Spieler
+                        );
+
+
+                        // -------------------------------------------------
+                        // Landepunkte berechnen
+                        // -------------------------------------------------
+
+                        var berechnen =
+                            new qx.ui.form.Button(
+                                "Landepunkte berechnen"
+                            ).set({
+                                toolTipText:
+                                "Berechnen der Landepunkte für den gefundenen Spieler",
+
+                                width: 150,
+                                height: 25,
+
+                                maxWidth: 150,
+                                maxHeight: 25,
+
+                                marginLeft: 5,
+
+                                enabled: false
+                            });
+
+                        berechnen.addListener(
+                            "click",
+                            function (e) {
+
+                                if (
+                                    Spieler.getValue() !== ""
+                                ) {
+
+                                    ClientLib.Net.CommunicationManager
+                                        .GetInstance()
+                                        .SendSimpleCommand(
+                                        "GetPublicPlayerInfoByName",
+                                        {
+                                            name: Spieler.getValue()
+                                        },
+                                        webfrontend.phe.cnc.Util.createEventDelegate(
+                                            ClientLib.Net.CommandResult,
+                                            this,
+                                            landepunktbestimmung
+                                        ),
+                                        null
+                                    );
+                                }
+
+                            },
+                            this
+                        );
+
+                        SektorsprungFenster.add(
+                            berechnen
+                        );
+
+
+                        // -------------------------------------------------
+                        // RadioGroup
+                        // -------------------------------------------------
+
+                        var RadioGroup =
+                            new qx.ui.form.RadioGroup();
+
+                        RadioGroup.add(
+                            Allichat,
+                            Offichat,
+                            Kartenmodus
+                        );
+
+
+                        // -------------------------------------------------
+                        // Weltkarte standardmäßig auswählen
+                        // -------------------------------------------------
+
                         RadioGroup.setSelection([
                             Kartenmodus
+                        ]);
+
+                        RadioGroup.setSelection([
+                            Kartenmodus
+
                         ]);
                         var landepunktbestimmung = function(context, data) {
                             var Mx = textfields[8].getValue();
