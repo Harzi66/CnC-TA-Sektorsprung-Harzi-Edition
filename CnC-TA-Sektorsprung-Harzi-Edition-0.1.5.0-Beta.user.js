@@ -39,8 +39,8 @@
                         var chat = ClientLib.Data.MainData.GetInstance().get_Chat();
                         var server = ClientLib.Data.MainData.GetInstance().get_Server();
                         var erneuern = true;
-                        var chatkanal = "/a ";
-                        var modus = "allianz";
+                        var chatkanal = "/w ";
+                        var modus = "welt";
                        var scriptsButton = qx.core.Init.getApplication().getMenuBar().getScriptsButton();
 
 scriptsButton.Add("Sektorsprung", "");
