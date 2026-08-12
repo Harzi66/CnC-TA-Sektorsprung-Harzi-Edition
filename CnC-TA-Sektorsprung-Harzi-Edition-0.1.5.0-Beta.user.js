@@ -39,26 +39,26 @@
                         var chat = ClientLib.Data.MainData.GetInstance().get_Chat();
                         var server = ClientLib.Data.MainData.GetInstance().get_Server();
                         var erneuern = true;
-                        var chatkanal = "/w ";
-                        var modus = "welt";
-                       var scriptsButton = qx.core.Init.getApplication().getMenuBar().getScriptsButton();
+                        var chatkanal = "/a ";
+                        var modus = "Karte";
+                        var scriptsButton = qx.core.Init.getApplication().getMenuBar().getScriptsButton();
 
-scriptsButton.Add("Sektorsprung", "");
+                        scriptsButton.Add("Sektorsprung", "");
 
-var children = scriptsButton.getMenu().getChildren();
-var lastChild = children[children.length - 1];
+                        var children = scriptsButton.getMenu().getChildren();
+                        var lastChild = children[children.length - 1];
 
-lastChild.addListener("execute", function () {
-    if(SektorsprungFenster.getVisibility() == "hidden") {
-        SektorsprungFenster.setVisibility("visible");
-        SektorsprungFenster.setActive(true);
-        SektorsprungFenster.setAlwaysOnTop(true);
-    } else {
-        SektorsprungFenster.setVisibility("hidden");
-        SektorsprungFenster.setActive(false);
-        SektorsprungFenster.setAlwaysOnTop(false);
-    }
-}, this);
+                        lastChild.addListener("execute", function () {
+                            if(SektorsprungFenster.getVisibility() == "hidden") {
+                                SektorsprungFenster.setVisibility("visible");
+                                SektorsprungFenster.setActive(true);
+                                SektorsprungFenster.setAlwaysOnTop(true);
+                            } else {
+                                SektorsprungFenster.setVisibility("hidden");
+                                SektorsprungFenster.setActive(false);
+                                SektorsprungFenster.setAlwaysOnTop(false);
+                            }
+                        }, this);
 
                         var SektorsprungFenster = new qx.ui.window.Window("Sektorsprung").set({
                             showMaximize:false,
@@ -234,6 +234,9 @@ lastChild.addListener("execute", function () {
                         var RadioGroup = new qx.ui.form.RadioGroup();
 
                         RadioGroup.add(Allichat, Offichat, Kartenmodus);
+                        RadioGroup.setSelection([
+                            Kartenmodus
+                        ]);
                         var landepunktbestimmung = function(context, data) {
                             var Mx = textfields[8].getValue();
                             var My = textfields[9].getValue();
