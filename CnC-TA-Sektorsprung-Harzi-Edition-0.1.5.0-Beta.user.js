@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name           CnC-TA-Sektorsprung - HE
-// @author         Trinitroglycerol
-// @contributor    leo7044 (https://github.com/leo7044)
+// @namespace      https://github.com/Harzi66/CnC-TA-Sektorsprung-Harzi-Edition
 // @version        0.1.5.0-Beta
 // @description    Erweiterte Version des Toolbox_Addon_Sektorsprung
 // @description    Original by Trinitroglycerol, leo7044, further developed by Harzi66.
 // @description    Landepunkt für Spieler berechnen
-// @include        https://cncapp*.alliances.commandandconquer.com/*/index.aspx*
+// @author         Trinitroglycerol
+// @contributor    leo7044 (https://github.com/leo7044)
+// @contributor    Harzi66
+// @match          https://cncapp*.alliances.commandandconquer.com/*/index.aspx*
 // @downloadURL    https://raw.githubusercontent.com/Harzi66/CnC-TA-Sektorsprung-Harzi-Edition/main/CnC-TA-Sektorsprung-Harzi-Edition-0.1.5.0-Beta.user.js
 // @updateURL      https://raw.githubusercontent.com/Harzi66/CnC-TA-Sektorsprung-Harzi-Edition/main/CnC-TA-Sektorsprung-Harzi-Edition-0.1.5.0-Beta.user.js
 // @grant          none
