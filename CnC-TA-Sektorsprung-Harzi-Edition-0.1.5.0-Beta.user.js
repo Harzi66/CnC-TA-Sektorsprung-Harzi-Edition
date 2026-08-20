@@ -11,6 +11,7 @@
 // @match          https://cncapp*.alliances.commandandconquer.com/*/index.aspx*
 // @downloadURL    https://raw.githubusercontent.com/Harzi66/CnC-TA-Sektorsprung-Harzi-Edition/main/CnC-TA-Sektorsprung-Harzi-Edition-0.1.5.0-Beta.user.js
 // @updateURL      https://raw.githubusercontent.com/Harzi66/CnC-TA-Sektorsprung-Harzi-Edition/main/CnC-TA-Sektorsprung-Harzi-Edition-0.1.5.0-Beta.user.js
+// @icon           https://raw.githubusercontent.com/Harzi66/CnC-TA-Harzi-Edition/main/Sektorsprung-Icon.png
 // @grant          none
 // ==/UserScript==
 
